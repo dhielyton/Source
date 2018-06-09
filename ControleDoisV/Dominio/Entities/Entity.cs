@@ -11,6 +11,7 @@ namespace Dominio.Entities
         {
             Status = Status.Ativo;
         }
+
         public Status Status { get; set; }
     }
 }

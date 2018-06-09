@@ -11,6 +11,7 @@ namespace Dominio.Entities
         {
            
         }
+
         public long BemID { get; set; }
 
         public string Descricao { get; set; }

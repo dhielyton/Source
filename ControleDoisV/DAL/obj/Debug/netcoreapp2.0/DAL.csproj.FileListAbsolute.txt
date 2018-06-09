@@ -7,3 +7,8 @@ C:\Repositorio\Source\ControleDoisV\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInfo
 C:\Repositorio\Source\ControleDoisV\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInfo.cs
 C:\Repositorio\Source\ControleDoisV\DAL\obj\Debug\netcoreapp2.0\DAL.dll
 C:\Repositorio\Source\ControleDoisV\DAL\obj\Debug\netcoreapp2.0\DAL.pdb
+C:\Repositorio\Source\ControleDoisV\DAL\bin\Debug\netcoreapp2.0\Dominio.dll
+C:\Repositorio\Source\ControleDoisV\DAL\bin\Debug\netcoreapp2.0\Microsoft.EntityFrameworkCore.dll
+C:\Repositorio\Source\ControleDoisV\DAL\bin\Debug\netcoreapp2.0\Dominio.pdb
+C:\Repositorio\Source\ControleDoisV\DAL\bin\Debug\netcoreapp2.0\Microsoft.EntityFrameworkCore.xml
+C:\Repositorio\Source\ControleDoisV\DAL\obj\Debug\netcoreapp2.0\DAL.csproj.CopyComplete

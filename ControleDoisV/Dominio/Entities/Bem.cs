@@ -9,14 +9,16 @@ namespace Dominio.Entities
     {
         public Bem()
         {
-            Status = Status.Ativo;
+           
         }
-        public long BemId { get; set; }
+        public long BemID { get; set; }
 
         public string Descricao { get; set; }
 
-        public Status Status { get; set; }
-
         public string Observacao { get; set; }
+
+        public long GrupoBemID { get; set; }
+
+        public GrupoBem GrupoBem { get; set; }
     }
 }

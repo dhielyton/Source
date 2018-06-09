@@ -1,0 +1,9 @@
+C:\Repositorio\Source\ControleDoisV\DAL\bin\Debug\netcoreapp2.0\DAL.deps.json
+C:\Repositorio\Source\ControleDoisV\DAL\bin\Debug\netcoreapp2.0\DAL.dll
+C:\Repositorio\Source\ControleDoisV\DAL\bin\Debug\netcoreapp2.0\DAL.pdb
+C:\Repositorio\Source\ControleDoisV\DAL\obj\Debug\netcoreapp2.0\DAL.csprojAssemblyReference.cache
+C:\Repositorio\Source\ControleDoisV\DAL\obj\Debug\netcoreapp2.0\DAL.csproj.CoreCompileInputs.cache
+C:\Repositorio\Source\ControleDoisV\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInfoInputs.cache
+C:\Repositorio\Source\ControleDoisV\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInfo.cs
+C:\Repositorio\Source\ControleDoisV\DAL\obj\Debug\netcoreapp2.0\DAL.dll
+C:\Repositorio\Source\ControleDoisV\DAL\obj\Debug\netcoreapp2.0\DAL.pdb

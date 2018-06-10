@@ -24,6 +24,14 @@ namespace DAL.Repository
             return entity;
         }
 
+        public async Task<GrupoBem> Delete(long? Id)
+        {
+            var entity = await LocalizarPorId((long)Id);
+            _dbContext.Remove(entity);
+            await _dbContext.SaveChangesAsync();
+            return entity;
+        }
+
         public async Task<GrupoBem> LocalizarPorId(long Id)
         {
             return await _dbContext.GrupoBens.FindAsync(Id);

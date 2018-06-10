@@ -6,7 +6,7 @@ namespace Dominio.Entities
 {
     public class GrupoBem:Entity
     {
-        public int GrupoBemID { get; set; }
+        public long GrupoBemID { get; set; }
 
         public string Descricao { get; set; }
     }

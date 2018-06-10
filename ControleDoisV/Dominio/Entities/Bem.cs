@@ -20,6 +20,6 @@ namespace Dominio.Entities
 
         public long GrupoBemID { get; set; }
 
-        public GrupoBem GrupoBem { get; set; }
+        public virtual GrupoBem GrupoBem { get; set; }
     }
 }

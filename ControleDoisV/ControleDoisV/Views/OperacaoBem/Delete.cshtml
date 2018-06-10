@@ -1,0 +1,50 @@
+﻿@model Dominio.Entities.OperacaoBem
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OperacaoBem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OperacaoBemID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OperacaoBemID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoOperacaoBem)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TipoOperacaoBem)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

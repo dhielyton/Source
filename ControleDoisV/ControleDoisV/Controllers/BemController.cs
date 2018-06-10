@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using DAL.Context;
 using DAL.Repository;
 using Dominio.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ControleDoisV.Controllers
 {
+    [Authorize]
     public class BemController : Controller
     {
         public BemController(C2VContext dbContext)

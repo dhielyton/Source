@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ControleDoisV.Models.Cadastros;
+
 using DAL.Context;
 using DAL.Repository;
 using Dominio.Entities;

@@ -59,6 +59,41 @@ namespace ControleDoisV.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult RegistrarNovoUsuario(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> RegistrarNovoUsuario(RegistrarUsuarioViewModel model, string returnUrl)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            if (ModelState.IsValid)
+            {
+                var user = new UserApplication { UserName = model.Email, Email = model.Email };
+
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation("Usuário criou uma nova conta com senha");
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    _logger.LogInformation("Usuário com acesso com a conta criada");
+
+                    return RedirectToLocal(returnUrl);
+                }
+                AddErros(result);
+            }
+
+            return View(model);
+        }
+
         private void AddErros(IdentityResult result)
         {
             foreach (var error in result.Errors)

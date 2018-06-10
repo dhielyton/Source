@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ControleDoisV.Models.UserApplication> SignInManager
+@inject Microsoft.AspNetCore.Identity.UserManager<ControleDoisV.Models.UserApplication> UserManager
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -33,6 +35,17 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li><a>Bem Vindo @UserManager.GetUserName(User)</a></li>
+                        <li><a asp-area="" asp-controller="AcessarUsuario" asp-action="Sair">Sair</a></li>
+
+                    }
+                    else
+                    {
+                        <li><a asp-area="" asp-controller="AcessarUsuario" asp-action="Acessar">Login</a></li>
+                    }
+
                 </ul>
             </div>
         </div>

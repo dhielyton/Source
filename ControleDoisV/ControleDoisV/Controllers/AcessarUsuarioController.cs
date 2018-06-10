@@ -19,17 +19,13 @@ namespace ControleDoisV.Controllers
 
         public AcessarUsuarioController(UserManager<UserApplication> userManager
             , SignInManager<UserApplication> signInManager
-            , ILogger logger)
+            , ILogger<AcessarUsuarioController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
-
+       
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Acessar(string returnUrl = null)
@@ -110,7 +106,7 @@ namespace ControleDoisV.Controllers
             }
             else
             {
-                return RedirectToAction(nameof(HomeController), "Home");
+                return RedirectToAction("Index", "Home");
             }
         }
 
@@ -119,7 +115,7 @@ namespace ControleDoisV.Controllers
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("Usuario realizou logout");
-            return RedirectToAction(nameof(HomeController), "Index");
+            return RedirectToAction( "Index", "Home");
         }
     }
 }

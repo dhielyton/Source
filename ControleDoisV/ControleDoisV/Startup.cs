@@ -38,7 +38,7 @@ namespace ControleDoisV
              .AddDefaultTokenProviders();
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = "/Infra/Acessar";
+                options.LoginPath = "/AcessarUsuario/Acessar";
                 options.AccessDeniedPath = "/Infra/AcessoNegado";
             });
         }
@@ -57,6 +57,8 @@ namespace ControleDoisV
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

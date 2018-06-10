@@ -1,0 +1,86 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ControleDoisV.Models.UserApplication> SignInManager
+@inject Microsoft.AspNetCore.Identity.UserManager<ControleDoisV.Models.UserApplication> UserManager
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>@ViewBag.Title</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-fallback-test-class="sr-only"
+              asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+    </environment>
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+
+    <div class="container">
+        <div class="row" style="text-align:right">
+            <div class="col-6"></div>
+            <div class="col-6">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <div>
+                        Olá @UserManager.GetUserName(User), seja bem vindo(a) / @Html.ActionLink("Logout", "Sair", "Infra", new { area = "" })
+                    </div>
+
+                }
+                else
+                {
+                    <a class="nav-item nav-link" asp-area="" asp-controller="Infra" asp-action="Acessar">
+                        Informar Usuário e Senha para Acessar
+                    </a>
+
+                }
+            </div>
+
+        </div>
+        <nav class="navbar fixed-top navbar-light bg-primary">
+            <a class="navbar-brand" href="#">
+                <img src="~/images/casa-do-codigo_2x.png" width="20" height="20" alt="">ASP. Net Core
+            </a>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">&nbsp;</div>
+                <div class="col-12">&nbsp;</div>
+                <div class="col-12">&nbsp;</div>
+                <div class="col-12">&nbsp;</div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <nav class="nav flex-column ">
+                        <a class="nav-link active" asp-area="Cadastros" asp-controller="Instituicao" asp-action="Index">
+                            <img src="~/images/university.png" width="30" height="30" alt="">Instituições
+                        </a>
+                        <a class="nav-link active" asp-area="Cadastros" asp-controller="Departamento" asp-action="Index">
+                            <img src="~/images/department.png" width="30" height="30" alt="">Departamentos
+                        </a>
+                        <a class="nav-link active" asp-area="Discente" asp-controller="Academico" asp-action="Index">
+                            <img src="~/images/department.png" width="30" height="30" alt="">Academicos
+                        </a>
+                    </nav>
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-10">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar" style="background-color:	#e3f2fd;">
+            <a class="navbar-brand" href="#">Dhielyton Lopes de Oliveira Araujo</a>
+        </nav>
+
+        @RenderSection("ScriptPage", required: false)
+    </div>
+
+</body>
+</html>

@@ -1,59 +1,62 @@
 ﻿@model IEnumerable<Dominio.Entities.Bem>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Bens";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.BemID)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Descricao)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Observacao)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.GrupoBemID)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Status)
-                </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BemID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Observacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GrupoBemID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
+@section Styles{
+    <link rel="stylesheet" href="~/lib/DataTables/media/css/jquery.dataTables.css" />
 }
-    </tbody>
-</table>
+
+<div class="card-block">
+    <div class="card-header text-white bg-primary text-center h1">
+        Instituições Registradas
+    </div>
+    <div class="card-body">
+        <table id="tabela_bens">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.BemID)</th>
+                    <th>@Html.DisplayNameFor(model => model.Descricao)</th>
+                    <th>@Html.DisplayNameFor(model => model.GrupoBem)</th>
+                    <th>@Html.DisplayNameFor(model => model.Status)</th>
+                    <th>@Html.DisplayNameFor(model => model.Observacao)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.BemID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Descricao)</td>
+                        <td>@Html.DisplayFor(modelItem => item.GrupoBem.Descricao)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Observacao)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.BemID">Editar</a>
+                            <a asp-action="Details" asp-route-id="@item.BemID">Detalhar</a>
+                            <a asp-action="Delete" asp-route-id="@item.BemID">Deletar</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <div class="card-footer bg-success text-center">
+        <a asp-action="Create" class="btn-success">Registar um Novo Bem</a>
+    </div>
+</div>
+@section ScriptPage{
+    <script type="text/javascript" src="~/lib/DataTables/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tabela_bens').DataTable({ "order": [[2, "asc"]] });
+
+        })
+    </script>
+}
+

@@ -14,13 +14,13 @@ namespace Dominio.Entities
 
         public DateTime? Data { get; set; }
 
-        public virtual ICollection<Bem> Bens { get; set; }
+        public virtual ICollection<BemOperacaoBem> Bens { get; set; }
 
         public Pessoa Tomador { get; set; }
 
         public void AddBem(Bem bem)
         {
-            Bens = Bens ?? new List<Bem>();
+            Bens = Bens ?? new List<BemOperacaoBem>();
             if (Bens.Where(x => x.BemID == bem.BemID).Count() > 0)
                 throw new Exception("O Bem já está adicionado a operação");
 
@@ -39,7 +39,7 @@ namespace Dominio.Entities
                 bem.Ativar();
             }
 
-            Bens.Add(bem);
+            Bens.Add(BemOperacaoBem.Create(bem,this));
 
         }
 

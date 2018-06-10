@@ -1,3 +1,6 @@
+C:\Repositorio\Source\ControleDoisV\ControleDoisV\obj\Debug\netcoreapp2.0\ControleDoisV.csproj.CoreCompileInputs.cache
+C:\Repositorio\Source\ControleDoisV\ControleDoisV\obj\Debug\netcoreapp2.0\ControleDoisV.AssemblyInfoInputs.cache
+C:\Repositorio\Source\ControleDoisV\ControleDoisV\obj\Debug\netcoreapp2.0\ControleDoisV.AssemblyInfo.cs
 C:\Repositorio\Source\ControleDoisV\ControleDoisV\bin\Debug\netcoreapp2.0\ControleDoisV.deps.json
 C:\Repositorio\Source\ControleDoisV\ControleDoisV\bin\Debug\netcoreapp2.0\ControleDoisV.runtimeconfig.json
 C:\Repositorio\Source\ControleDoisV\ControleDoisV\bin\Debug\netcoreapp2.0\ControleDoisV.runtimeconfig.dev.json
@@ -8,9 +11,6 @@ C:\Repositorio\Source\ControleDoisV\ControleDoisV\bin\Debug\netcoreapp2.0\Domini
 C:\Repositorio\Source\ControleDoisV\ControleDoisV\bin\Debug\netcoreapp2.0\DAL.pdb
 C:\Repositorio\Source\ControleDoisV\ControleDoisV\bin\Debug\netcoreapp2.0\Dominio.pdb
 C:\Repositorio\Source\ControleDoisV\ControleDoisV\obj\Debug\netcoreapp2.0\ControleDoisV.csprojAssemblyReference.cache
-C:\Repositorio\Source\ControleDoisV\ControleDoisV\obj\Debug\netcoreapp2.0\ControleDoisV.csproj.CoreCompileInputs.cache
-C:\Repositorio\Source\ControleDoisV\ControleDoisV\obj\Debug\netcoreapp2.0\ControleDoisV.AssemblyInfoInputs.cache
-C:\Repositorio\Source\ControleDoisV\ControleDoisV\obj\Debug\netcoreapp2.0\ControleDoisV.AssemblyInfo.cs
 C:\Repositorio\Source\ControleDoisV\ControleDoisV\obj\Debug\netcoreapp2.0\ControleDoisV.csproj.CopyComplete
 C:\Repositorio\Source\ControleDoisV\ControleDoisV\obj\Debug\netcoreapp2.0\ControleDoisV.dll
 C:\Repositorio\Source\ControleDoisV\ControleDoisV\obj\Debug\netcoreapp2.0\ControleDoisV.pdb

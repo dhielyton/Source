@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Dominio.Entities
 {
-    public class Bem:Entity
+    public class Bem : Entity
     {
         public Bem()
         {
-           
+
         }
 
         public long BemID { get; set; }
@@ -20,6 +20,8 @@ namespace Dominio.Entities
 
         public long GrupoBemID { get; set; }
 
-        public virtual GrupoBem GrupoBem { get; set; }
+        public GrupoBem GrupoBem { get; set; }
+
+        public ICollection<BemOperacaoBem> Operacoes { get;  set; }
     }
 }

@@ -22,7 +22,7 @@ namespace ControleDoisV.TestUnit.Dominio
             Assert.IsNotNull(operacaoBem.Tomador);
             foreach(var item in operacaoBem.Bens)
             {
-                Assert.AreEqual(item.Status, Status.Inativo);
+                Assert.AreEqual(item.Bem.Status, Status.Inativo);
             }
         }
 
@@ -56,7 +56,7 @@ namespace ControleDoisV.TestUnit.Dominio
             Assert.IsNotNull(operacaoBem.Tomador);
             foreach (var item in operacaoBem.Bens)
             {
-                Assert.AreEqual(item.Status, Status.Ativo);
+                Assert.AreEqual(item.Bem.Status, Status.Ativo);
             }
         }
 

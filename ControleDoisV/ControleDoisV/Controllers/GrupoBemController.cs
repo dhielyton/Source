@@ -43,6 +43,7 @@ namespace ControleDoisV.Controllers
                 if (ModelState.IsValid)
                 {
                     await _Repository.Save(model);
+                    return RedirectToAction(nameof(Index));
                 }
             }
             catch (Exception e)

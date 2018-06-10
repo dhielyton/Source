@@ -6,6 +6,6 @@ C:\Repositorio\Source\ControleDoisV\Dominio\obj\Debug\netcoreapp2.0\Dominio.Asse
 C:\Repositorio\Source\ControleDoisV\Dominio\obj\Debug\netcoreapp2.0\Dominio.AssemblyInfo.cs
 C:\Repositorio\Source\ControleDoisV\Dominio\obj\Debug\netcoreapp2.0\Dominio.dll
 C:\Repositorio\Source\ControleDoisV\Dominio\obj\Debug\netcoreapp2.0\Dominio.pdb
+C:\Repositorio\Source\ControleDoisV\Dominio\obj\Debug\netcoreapp2.0\Dominio.csprojAssemblyReference.cache
 C:\Repositorio\Source\ControleDoisV\Dominio\bin\Debug\netcoreapp2.0\Dominio.runtimeconfig.json
 C:\Repositorio\Source\ControleDoisV\Dominio\bin\Debug\netcoreapp2.0\Dominio.runtimeconfig.dev.json
-C:\Repositorio\Source\ControleDoisV\Dominio\obj\Debug\netcoreapp2.0\Dominio.csprojAssemblyReference.cache

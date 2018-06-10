@@ -13,5 +13,15 @@ namespace Dominio.Entities
         }
 
         public Status Status { get; set; }
+
+        public void Desativar()
+        {
+            Status = Status.Inativo;
+        }
+
+        public void Ativar()
+        {
+            Status = Status.Ativo;
+        }
     }
 }

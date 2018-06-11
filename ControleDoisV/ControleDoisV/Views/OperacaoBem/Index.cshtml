@@ -20,6 +20,7 @@
                     <th>@Html.DisplayNameFor(model => model.TipoOperacaoBem)</th>
                     <th>@Html.DisplayNameFor(model => model.Data)</th>
                     <th>@Html.DisplayNameFor(model => model.Tomador)</th>
+                    <th>@Html.DisplayNameFor(model => model.Bem)</th>
                     <th>@Html.DisplayNameFor(model => model.Observacao)</th>
 
                     <th></th>
@@ -28,16 +29,17 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.OperacaoBemID)</td>
-                        <td>@Html.DisplayFor(modelItem => item.TipoOperacaoBem)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Data)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Tomador)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Tomador)</td>
-                        <td>
-                            <a asp-action="Details" asp-route-id="@item.OperacaoBemID">Detalhar</a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.OperacaoBemID)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TipoOperacaoBem)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Data)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Tomador)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Bem)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Observacao)</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.OperacaoBemID">Detalhar</a>
+                    </td>
+                </tr>
 
                 }
             </tbody>
@@ -45,7 +47,7 @@
 
     </div>
     <div class="card-footer bg-success text-center">
-        <a asp-action="Create" class="btn-success">Criar uma nova instituição</a>
+        <a asp-action="Create" class="btn-success">Registrar uma Nova Operação</a>
     </div>
 </div>
 @section ScriptPage{

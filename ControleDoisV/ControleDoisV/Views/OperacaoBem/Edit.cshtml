@@ -2,30 +2,31 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
 }
 
-<h2>Edit</h2>
-
-<h4>OperacaoBem</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="card">
+    <div class="card-header text-white text-center bg-secondary h1">Editando Bem</div>
+    <div class="card-body">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="OperacaoBemID" class="control-label"></label>
-                <input asp-for="OperacaoBemID" class="form-control" />
-                <span asp-validation-for="OperacaoBemID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TipoOperacaoBem" class="control-label"></label>
-                <input asp-for="TipoOperacaoBem" class="form-control" />
-                <span asp-validation-for="TipoOperacaoBem" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="OperacaoBemID" />
             <div class="form-group">
                 <label asp-for="Data" class="control-label"></label>
                 <input asp-for="Data" class="form-control" />
                 <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoOperacaoBem" class="control-label"></label>
+                <select asp-for="TipoOperacaoBem" class="form-control" asp-items="@ViewBag.TipoOperacoes"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PessoaID" class="control-label"></label>
+                <select asp-for="PessoaID" class="form-control" asp-items="@ViewBag.Pessoas"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BemID" class="control-label"></label>
+                <select asp-for="BemID" class="form-control" asp-items="@ViewBag.Bens"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Observacao" class="control-label"></label>
@@ -33,21 +34,15 @@
                 <span asp-validation-for="Observacao" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
+                <a asp-action="Index" class="btn btn-warning">Retornar a Listagem de Bens</a>
             </div>
         </form>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <div class="card-footer bg-info text-center text-white">
+        Informe os dados acima ou clique em dos botões de ação
+    </div>
+
+</div>

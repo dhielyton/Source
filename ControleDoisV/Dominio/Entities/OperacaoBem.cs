@@ -20,8 +20,10 @@ namespace Dominio.Entities
         [DataType(DataType.DateTime)]
         public DateTime? Data { get; set; }
 
+        public long BemID { get; set; }
         public Bem Bem { get; set; }
 
+        public int PessoaID { get; set; }
         public Pessoa Tomador { get; set; }
 
         public void EfetivarOperacao()

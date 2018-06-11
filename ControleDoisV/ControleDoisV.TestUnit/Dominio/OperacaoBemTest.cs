@@ -16,14 +16,11 @@ namespace ControleDoisV.TestUnit.Dominio
             operacaoBem.Tomador = new Pessoa { Nome = "Wesley Ramon", Observacao = "Irmão" };
             operacaoBem.Data = DateTime.Now;
             var bem = BemTest.Criar("GOD OF WAR II", "Jogos PS2");
-            operacaoBem.AddBem(bem);
+            operacaoBem.Bem = bem;
+            operacaoBem.EfetivarOperacao();
             Assert.AreEqual(operacaoBem.TipoOperacaoBem, TipoOperacaoBem.Emprestimo);
-            Assert.IsTrue(operacaoBem.Bens.Count > 0);
             Assert.IsNotNull(operacaoBem.Tomador);
-            foreach(var item in operacaoBem.Bens)
-            {
-                Assert.AreEqual(item.Bem.Status, Status.Inativo);
-            }
+            Assert.AreEqual(operacaoBem.Bem.Status, Status.Inativo);
         }
 
         [TestMethod]
@@ -36,8 +33,9 @@ namespace ControleDoisV.TestUnit.Dominio
             operacaoBem.Data = DateTime.Now;
             var bem = BemTest.Criar("GOD OF WAR II", "Jogos PS2");
             bem.Desativar();
-            operacaoBem.AddBem(bem);
-            
+            operacaoBem.Bem = bem;
+            operacaoBem.EfetivarOperacao();
+
         }
 
         [TestMethod]
@@ -49,15 +47,14 @@ namespace ControleDoisV.TestUnit.Dominio
             operacaoBem.Data = DateTime.Now;
             var bem = BemTest.Criar("GOD OF WAR II", "Jogos PS2");
             bem.Desativar();
-            operacaoBem.AddBem(bem);
-            
+            operacaoBem.Bem = bem;
+            operacaoBem.EfetivarOperacao();
+
             Assert.AreEqual(operacaoBem.TipoOperacaoBem, TipoOperacaoBem.Devolucao);
-            Assert.IsTrue(operacaoBem.Bens.Count > 0);
+            Assert.IsTrue(operacaoBem.Bem != null);
             Assert.IsNotNull(operacaoBem.Tomador);
-            foreach (var item in operacaoBem.Bens)
-            {
-                Assert.AreEqual(item.Bem.Status, Status.Ativo);
-            }
+            Assert.AreEqual(operacaoBem.Bem.Status, Status.Ativo);
+
         }
 
         [TestMethod]
@@ -69,8 +66,8 @@ namespace ControleDoisV.TestUnit.Dominio
             operacaoBem.Tomador = new Pessoa { Nome = "Wesley Ramon", Observacao = "Irmão" };
             operacaoBem.Data = DateTime.Now;
             var bem = BemTest.Criar("GOD OF WAR II", "Jogos PS2");
-           
-            operacaoBem.AddBem(bem);
+            operacaoBem.Bem = bem;
+            operacaoBem.EfetivarOperacao();
         }
     }
 }

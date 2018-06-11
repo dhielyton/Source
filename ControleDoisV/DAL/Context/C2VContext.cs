@@ -20,18 +20,6 @@ namespace DAL.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<BemOperacaoBem>()
-                .HasKey(bo => new { bo.BemID, bo.OperacaoBemID });
-            modelBuilder.Entity<BemOperacaoBem>()
-                .HasOne(x => x.Bem)
-                .WithMany(x => x.Operacoes)
-                .HasForeignKey(x => x.BemID);
-
-            modelBuilder.Entity<BemOperacaoBem>()
-                .HasOne(b => b.OperacaoBem)
-                .WithMany(b => b.Bens)
-               .HasForeignKey(b => b.OperacaoBemID);
-
         }
     }
 }

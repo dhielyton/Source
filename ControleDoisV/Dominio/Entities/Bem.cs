@@ -26,6 +26,6 @@ namespace Dominio.Entities
         [Display(Name ="Grupo")]
         public GrupoBem GrupoBem { get; set; }
 
-        public ICollection<BemOperacaoBem> Operacoes { get;  set; }
+        public ICollection<OperacaoBem> Operacoes { get;  set; }
     }
 }

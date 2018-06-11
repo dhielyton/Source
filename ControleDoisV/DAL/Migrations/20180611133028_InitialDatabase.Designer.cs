@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(C2VContext))]
-    [Migration("20180610173056_InitialDataBase")]
-    partial class InitialDataBase
+    [Migration("20180611133028_InitialDatabase")]
+    partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,7 +27,8 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Descricao");
+                    b.Property<string>("Descricao")
+                        .IsRequired();
 
                     b.Property<long>("GrupoBemID");
 
@@ -42,26 +43,14 @@ namespace DAL.Migrations
                     b.ToTable("Bens");
                 });
 
-            modelBuilder.Entity("Dominio.Entities.BemOperacaoBem", b =>
-                {
-                    b.Property<long>("BemID");
-
-                    b.Property<long>("OperacaoBemID");
-
-                    b.HasKey("BemID", "OperacaoBemID");
-
-                    b.HasIndex("OperacaoBemID");
-
-                    b.ToTable("BemOperacaoBem");
-                });
-
             modelBuilder.Entity("Dominio.Entities.GrupoBem", b =>
                 {
                     b.Property<long>("GrupoBemID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Descricao");
+                    b.Property<string>("Descricao")
+                        .IsRequired();
 
                     b.Property<int>("Status");
 
@@ -76,6 +65,8 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<long?>("BemID");
+
                     b.Property<DateTime?>("Data");
 
                     b.Property<string>("Observacao");
@@ -88,6 +79,8 @@ namespace DAL.Migrations
 
                     b.HasKey("OperacaoBemID");
 
+                    b.HasIndex("BemID");
+
                     b.HasIndex("TomadorPessoaID");
 
                     b.ToTable("OperacaoBens");
@@ -99,7 +92,8 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
                     b.Property<string>("Observacao");
 
@@ -118,23 +112,14 @@ namespace DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Dominio.Entities.BemOperacaoBem", b =>
+            modelBuilder.Entity("Dominio.Entities.OperacaoBem", b =>
                 {
                     b.HasOne("Dominio.Entities.Bem", "Bem")
                         .WithMany("Operacoes")
-                        .HasForeignKey("BemID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("BemID");
 
-                    b.HasOne("Dominio.Entities.OperacaoBem", "OperacaoBem")
-                        .WithMany("Bens")
-                        .HasForeignKey("OperacaoBemID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Dominio.Entities.OperacaoBem", b =>
-                {
                     b.HasOne("Dominio.Entities.Pessoa", "Tomador")
-                        .WithMany()
+                        .WithMany("OperacoesBens")
                         .HasForeignKey("TomadorPessoaID");
                 });
 #pragma warning restore 612, 618

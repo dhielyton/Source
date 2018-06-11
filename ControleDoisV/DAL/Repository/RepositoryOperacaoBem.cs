@@ -47,14 +47,14 @@ namespace DAL.Repository
         {
             return _dbContext.OperacaoBens
                 .Include(x => x.Tomador)
-                .Include(x => x.Bens)
+                .Include(x => x.Bem)
                 .OrderByDescending(x => x.Data);
         }
 
         public async Task<OperacaoBem> LocalizarPorId(long Id)
         {
             return await _dbContext.OperacaoBens.Include(x => x.Tomador)
-                .Include(x => x.Bens).SingleAsync(x => x.OperacaoBemID == Id);
+                .Include(x => x.Bem).SingleAsync(x => x.OperacaoBemID == Id);
         }
 
         public async Task<OperacaoBem> Save(OperacaoBem entity)

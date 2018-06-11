@@ -18,8 +18,10 @@ namespace ControleDoisV.Controllers
         public BemController(C2VContext dbContext)
         {
             _Repository = new RepositoryBem(dbContext);
+            _RepositoryGrupoBem = new RepositoryGrupoBem(dbContext);
         }
         private RepositoryBem _Repository;
+        private RepositoryGrupoBem _RepositoryGrupoBem;
 
         [HttpGet]
         public async Task<IActionResult> Index()
@@ -28,14 +30,15 @@ namespace ControleDoisV.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.GrupoBens = await _RepositoryGrupoBem.GetAllOrderByDescricao().ToListAsync();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Descricao, Status")]Bem model)
+        public async Task<IActionResult> Create(Bem model)
         {
             try
             {
@@ -45,6 +48,7 @@ namespace ControleDoisV.Controllers
                 if (ModelState.IsValid)
                 {
                     await _Repository.Save(model);
+                    return RedirectToAction(nameof(Index));
                 }
             }
             catch (Exception e)
@@ -58,6 +62,7 @@ namespace ControleDoisV.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(long? Id)
         {
+            ViewBag.GrupoBens = await _RepositoryGrupoBem.GetAllOrderByDescricao().ToListAsync();
             return await ActionForId((long)Id);
         }
 

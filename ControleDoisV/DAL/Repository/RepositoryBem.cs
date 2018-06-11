@@ -1,5 +1,6 @@
 ﻿using DAL.Context;
 using Dominio.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace DAL.Repository
 
         public IQueryable<Bem> GetAllOrderByDescricao()
         {
-            return _dbContext.Bens.OrderBy(x => x.Descricao);
+            return _dbContext.Bens.Include(x => x.GrupoBem).OrderBy(x => x.Descricao);
         }
 
         public async Task<Bem> LocalizarPorId(long Id)

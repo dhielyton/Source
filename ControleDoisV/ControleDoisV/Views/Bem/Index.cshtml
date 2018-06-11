@@ -5,58 +5,75 @@
     Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
 }
 
-@section Styles{
+@section styles{
     <link rel="stylesheet" href="~/lib/DataTables/media/css/jquery.dataTables.css" />
 }
-
 <div class="card-block">
     <div class="card-header text-white bg-primary text-center h1">
-        Instituições Registradas
+        Bens Registrados
     </div>
-    <div class="card-body">
-        <table id="tabela_bens">
-            <thead>
-                <tr>
-                    <th>@Html.DisplayNameFor(model => model.BemID)</th>
-                    <th>@Html.DisplayNameFor(model => model.Descricao)</th>
-                    <th>@Html.DisplayNameFor(model => model.GrupoBem)</th>
-                    <th>@Html.DisplayNameFor(model => model.Status)</th>
-                    <th>@Html.DisplayNameFor(model => model.Observacao)</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.BemID)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Descricao)</td>
-                        <td>@Html.DisplayFor(modelItem => item.GrupoBem.Descricao)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Status)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Observacao)</td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.BemID">Editar</a>
-                            <a asp-action="Details" asp-route-id="@item.BemID">Detalhar</a>
-                            <a asp-action="Delete" asp-route-id="@item.BemID">Deletar</a>
-                        </td>
-                    </tr>
-
-                }
-            </tbody>
-        </table>
-
-    </div>
+    <table class="table" id="tabela_bens">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BemID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GrupoBem)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Observacao)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelitem => item.BemID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GrupoBem.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GrupoBem.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observacao)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BemID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BemID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BemID">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
     <div class="card-footer bg-success text-center">
-        <a asp-action="Create" class="btn-success">Registar um Novo Bem</a>
+        <a asp-action="Create" class="btn-success">Registrar Bem</a>
     </div>
 </div>
 @section ScriptPage{
     <script type="text/javascript" src="~/lib/DataTables/media/js/jquery.dataTables.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#tabela_bens').DataTable({ "order": [[2, "asc"]] });
-
-        })
+        $(document).ready(
+            function () {
+                $("#tabela_bens").DataTable();
+            }
+        );
     </script>
+
 }
 

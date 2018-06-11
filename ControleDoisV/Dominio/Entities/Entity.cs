@@ -1,6 +1,8 @@
 ﻿using Dominio.Enumeration;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Dominio.Entities
@@ -12,6 +14,7 @@ namespace Dominio.Entities
             Status = Status.Ativo;
         }
 
+        [Display(Name ="Situação")]
         public Status Status { get; set; }
 
         public void Desativar()

@@ -4,45 +4,19 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<@section styles{
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+}
 
-<div>
-    <h4>Bem</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BemID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.BemID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Observacao)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Observacao)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.GrupoBemID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.GrupoBemID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="card">
+        <div class="card-header text-white bg-secondary text-center h1">
+            Exibido Departamento Cadastrado
+        </div>
+        @Html.Partial("~/Views/Bem/_PartialViewDetails.cshtml", Model)
+        <div class="card-footer bg-info text-center text-white">
+            <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model.BemID">Edit</a> |
+            <a asp-action="Index" class="btn btn-warning">Retornar Listagem de Bens</a>
+        </div>
+    </div>
+
+    

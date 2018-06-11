@@ -2,49 +2,52 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
 }
+@section styles{
+    <link rel=" stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+}
+@if (@TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
 
-<h2>Delete</h2>
+}
+    <div class="card">
+        <div class="card-header text-white bg-secondary text-center h1">
+            Exibindo um Departamento existente
+        </div>
+        @Html.Partial("~/Views/Bem/_PartialViewDetails.cshtml", Model)
+        <div class="card-footer bg-info text-center text-white">
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Bem</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BemID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.BemID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Observacao)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Observacao)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.GrupoBemID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.GrupoBemID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+            <input type="hidden" asp-for="BemID" />
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalConfirmationDelete"> Remover Departamento</button>
+            <a asp-action="Index" class="btn btn-info">Retornar a Listagem de Departamentos</a>
+
+        </div>
+        <div class="modal fade" id="modalConfirmationDelete" tabindex="-1" role="dialog"
+             aria-labelledby="deleteModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModal"> Remoação de Departamento</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Confirma a exclusão do Deparatamento @Model.Descricao.ToUpper()??</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="BemID" />
+                            <input type="submit" value="Remover Bem" class="btn-primary" />
+                            <button type="button" class="btn-secondary" data-dismiss="modal">Fechar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -85,7 +85,11 @@ namespace ControleDoisV.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(long? Id)
         {
-            return await ActionForId(Id);
+            if (Id == null)
+                return NotFound();
+
+            var model = await _Repository.LocalizarPorId((long)Id);
+            return View(model);
         }
 
         [HttpGet]

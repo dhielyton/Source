@@ -1,5 +1,6 @@
 ﻿using DAL.Context;
 using Dominio.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +45,7 @@ namespace DAL.Repository
 
         public async Task<Pessoa> LocalizarPorId(long Id)
         {
-            return await _dbContext.Pessoas.FindAsync(Id);
+            return await _dbContext.Pessoas.Include(x => x.OperacoesBens).SingleAsync(x => x.PessoaID == Id);
         }
 
         public async Task<Pessoa> Save(Pessoa entity)

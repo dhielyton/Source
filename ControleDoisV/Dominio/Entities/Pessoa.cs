@@ -14,5 +14,7 @@ namespace Dominio.Entities
 
         [Display(Name ="Observação")]
         public string Observacao { get; set; }
+
+        public virtual ICollection<OperacaoBem> OperacoesBens { get; set; }
     }
 }

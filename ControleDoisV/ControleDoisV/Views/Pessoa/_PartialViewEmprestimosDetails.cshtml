@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Dominio.Entities.Bem>
+div class="panel panel-primary">
+<div class="panel-heading">
+    Relação de Departamentos registrados para a Instituição
+</div>
+<div class="panel-body">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BemID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GrupoBem)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BemID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GrupoBem.Descricao)
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+<div class="panel-footer panel-info">
+
+</div>
+

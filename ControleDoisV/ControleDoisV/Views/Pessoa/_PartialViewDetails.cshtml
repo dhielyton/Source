@@ -38,6 +38,9 @@
             </span>
             <input asp-for="Observacao" class="form-control" disabled="disabled" />
         </div>
+        <div class="col-3">
+            @Html.Partial("~/Views/Pessoa/_PartialViewEmprestimosDetails.cshtml",Model.OperacoesBens.SelectMany(x => x.Bens));
+        </div>
     </div>
 </div>
 

@@ -22,8 +22,8 @@
         <div class="card-footer bg-info text-center text-white">
 
             <input type="hidden" asp-for="BemID" />
-            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalConfirmationDelete"> Remover Departamento</button>
-            <a asp-action="Index" class="btn btn-info">Retornar a Listagem de Departamentos</a>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalConfirmationDelete"> Remover Bem</button>
+            <a asp-action="Index" class="btn btn-info">Retornar Listagem de Bens</a>
 
         </div>
         <div class="modal fade" id="modalConfirmationDelete" tabindex="-1" role="dialog"
@@ -31,13 +31,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModal"> Remoação de Departamento</h5>
+                        <h5 class="modal-title" id="deleteModal"> Remoção de Bens</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Confirma a exclusão do Deparatamento @Model.Descricao.ToUpper()??</p>
+                        <p>Confirma a exclusão do Bem @Model.Descricao.ToUpper()??</p>
 
                     </div>
                     <div class="modal-footer">

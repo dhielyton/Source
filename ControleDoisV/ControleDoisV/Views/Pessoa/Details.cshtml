@@ -2,41 +2,20 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
 }
 
-<h2>Details</h2>
+section styles{
+<link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+}
 
-<div>
-    <h4>Pessoa</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PessoaID)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PessoaID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Observacao)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Observacao)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+<div class="card">
+    <div class="card-header text-white bg-secondary text-center h1">
+        Exibido Pessoa
+    </div>
+    @Html.Partial("~/Views/Pessoa/_PartialViewDetails.cshtml", Model)
+    <div class="card-footer bg-info text-center text-white">
+        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model.PessoaID">Edit</a> |
+        <a asp-action="Index" class="btn btn-warning">Retornar Listagem de Bens</a>
+    </div>
 </div>

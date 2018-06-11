@@ -10,7 +10,7 @@ namespace Dominio.Entities
         [Display(Name ="ID")]
         public long GrupoBemID { get; set; }
 
-        [Display(Name = "Descricao")]
+        [Display(Name = "Descrição")]
         [Required]
         public string Descricao { get; set; }
     }

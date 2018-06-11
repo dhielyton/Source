@@ -32,7 +32,7 @@ namespace ControleDoisV.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Descricao, Status")]Pessoa model)
+        public async Task<IActionResult> Create(Pessoa model)
         {
             try
             {
@@ -42,6 +42,7 @@ namespace ControleDoisV.Controllers
                 if (ModelState.IsValid)
                 {
                     await _Repository.Save(model);
+                    return RedirectToAction(nameof(Index));
                 }
             }
             catch (Exception e)

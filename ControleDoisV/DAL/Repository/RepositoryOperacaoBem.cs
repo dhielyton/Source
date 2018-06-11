@@ -1,5 +1,6 @@
 ﻿using DAL.Context;
 using Dominio.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class RepositoryOperacaoBem:IRepository<OperacaoBem>
+    public class RepositoryOperacaoBem : IRepository<OperacaoBem>
     {
         private C2VContext _dbContext;
 
@@ -44,12 +45,16 @@ namespace DAL.Repository
 
         public IQueryable<OperacaoBem> GetAllOrderByData()
         {
-            return _dbContext.OperacaoBens.OrderByDescending(x => x.Data);
+            return _dbContext.OperacaoBens
+                .Include(x => x.Tomador)
+                .Include(x => x.Bens)
+                .OrderByDescending(x => x.Data);
         }
 
         public async Task<OperacaoBem> LocalizarPorId(long Id)
         {
-            return await _dbContext.OperacaoBens.FindAsync(Id);
+            return await _dbContext.OperacaoBens.Include(x => x.Tomador)
+                .Include(x => x.Bens).SingleAsync(x => x.OperacaoBemID == Id);
         }
 
         public async Task<OperacaoBem> Save(OperacaoBem entity)

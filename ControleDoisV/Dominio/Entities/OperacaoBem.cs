@@ -1,6 +1,7 @@
 ﻿using Dominio.Enumeration;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -8,10 +9,15 @@ namespace Dominio.Entities
 {
     public class OperacaoBem : Entity
     {
+        [Display(Name ="ID")]
         public long OperacaoBemID { get; set; }
 
+        [Display(Name ="Tipo de Operação")]
+        [Required]
         public TipoOperacaoBem TipoOperacaoBem { get; set; }
 
+        [Display(Name ="Data da Operação")]
+        [DataType(DataType.DateTime)]
         public DateTime? Data { get; set; }
 
         public virtual ICollection<BemOperacaoBem> Bens { get; set; }
@@ -42,7 +48,7 @@ namespace Dominio.Entities
             Bens.Add(BemOperacaoBem.Create(bem,this));
 
         }
-
+        [Display(Name ="Observação")]
         public string Observacao { get; set; }
     }
 }

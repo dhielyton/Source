@@ -115,7 +115,7 @@ namespace ControleDoisV.Controllers
             if (Id == null)
                 return NotFound();
 
-            var model = await _Repository.LocalizarPorId((long)Id).Include;
+            var model = await _Repository.LocalizarPorId((long)Id);
 
             return View(model);
         }

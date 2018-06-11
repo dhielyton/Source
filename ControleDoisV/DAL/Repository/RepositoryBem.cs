@@ -40,7 +40,7 @@ namespace DAL.Repository
 
         public async Task<Bem> LocalizarPorId(long Id)
         {
-            return await _dbContext.Bens.FindAsync(Id);
+            return await _dbContext.Bens.Include(x => x.GrupoBem).SingleAsync(x => x.BemID == Id);
         }
 
         public async Task<Bem> Save(Bem entity)
